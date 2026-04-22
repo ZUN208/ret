@@ -10,38 +10,133 @@
 
   <h1>Contact Us</h1>
 
-  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg70000011j7N" method="POST" onsubmit="return isCaptched();">
+  <form
+    action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg70000011j7N"
+    method="POST"
+    onsubmit="return isCaptchaChecked();"
+  >
 
-<input type=hidden name="oid" value="00Dg70000011j7N">
-<input type=hidden name="retURL" value="http://google.com">
+    <!-- Hidden Salesforce Fields -->
+    <input type="hidden" name="oid" value="00Dg70000011j7N">
 
+    <input
+      type="hidden"
+      name="retURL"
+      value="https://zun208.github.io/ret/"
+    >
+
+    <input
+      type="hidden"
+      name="captcha_settings"
+      value='{"keyname":"LeadForm","fallback":"true","orgId":"00Dg70000011j7N","ts":""}'
+    >
 
     <div class="form-group">
 
+      <!-- First Name -->
       <label for="first_name">First Name</label>
-      <input required id="first_name" maxlength="40" name="first_name" type="text">
+      <input
+        required
+        id="first_name"
+        maxlength="40"
+        name="first_name"
+        type="text"
+      >
       <br>
 
+      <!-- Last Name -->
       <label for="last_name">Last Name</label>
-      <input required id="last_name" maxlength="80" name="last_name" type="text">
+      <input
+        required
+        id="last_name"
+        maxlength="80"
+        name="last_name"
+        type="text"
+      >
       <br>
 
+      <!-- Email -->
       <label for="email">Email</label>
-      <input required id="email" maxlength="80" name="email" type="email">
+      <input
+        required
+        id="email"
+        maxlength="80"
+        name="email"
+        type="email"
+      >
       <br>
 
+      <!-- Custom Date Field -->
       <label for="00Ng7000003tue9">dt date</label>
-      <input required type="date" id="00Ng7000003tue9" name="00Ng7000003tue9">
+      <input
+        required
+        type="date"
+        id="00Ng7000003tue9"
+        name="00Ng7000003tue9"
+      >
       <br>
 
-      <input class="bt" type="submit" value="Submit" >
-      <script src="https://www.google.com/recaptcha/api.js"></script>
-<script>function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); </script>
-<input type=hidden name='captcha_settings' value='{"keyname":"LeadForm","fallback":"true","orgId":"00Dg70000011j7N","ts":""}'>
-<div class="g-recaptcha" data-sitekey="6LfzhMQsAAAAAJisFKoaZ9n5IEQzw91yMimoSrfF"></div><br>
-<script>function isCaptched() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") { alert("Please verify that you are not a robot."); return false; } return true; }</script>
+      <!-- Google reCAPTCHA -->
+      <div
+        class="g-recaptcha"
+        data-sitekey="6LfzhMQsAAAAAJisFKoaZ9n5IEQzw91yMimoSrfF"
+      ></div>
+      <br>
+
+      <!-- Submit Button -->
+      <input
+        class="bt"
+        type="submit"
+        value="Submit"
+      >
+
     </div>
   </form>
+
+  <!-- Google reCAPTCHA Script -->
+  <script
+    src="https://www.google.com/recaptcha/api.js"
+    async
+    defer
+  ></script>
+
+  <script>
+    function isCaptchaChecked() {
+      var response = document.getElementById("g-recaptcha-response");
+
+      if (
+        response == null ||
+        response.value.trim() === ""
+      ) {
+        alert("Please verify that you are not a robot.");
+        return false;
+      }
+
+      return true;
+    }
+
+    function timestamp() {
+      var response = document.getElementById("g-recaptcha-response");
+
+      if (
+        response == null ||
+        response.value.trim() === ""
+      ) {
+        var elems = JSON.parse(
+          document.getElementsByName("captcha_settings")[0].value
+        );
+
+        elems["ts"] = JSON.stringify(
+          new Date().getTime()
+        );
+
+        document.getElementsByName("captcha_settings")[0].value =
+          JSON.stringify(elems);
+      }
+    }
+
+    setInterval(timestamp, 500);
+  </script>
 
 </body>
 </html>
