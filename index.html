@@ -10,7 +10,7 @@
 
   <h1>Contact Us</h1>
 
-  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg70000011j7N" method="POST">
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg70000011j7N" method="POST" onsubmit="return isCaptched();">
 
 <input type=hidden name="oid" value="00Dg70000011j7N">
 <input type=hidden name="retURL" value="http://google.com">
@@ -34,7 +34,7 @@
       <input required type="date" id="00Ng7000003tue9" name="00Ng7000003tue9">
       <br>
 
-      <input class="bt" type="submit" value="Submit" onsubmit="return isCaptched()">
+      <input class="bt" type="submit" value="Submit" >
       <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); </script>
 <input type=hidden name='captcha_settings' value='{"keyname":"LeadForm","fallback":"true","orgId":"00Dg70000011j7N","ts":""}'>
