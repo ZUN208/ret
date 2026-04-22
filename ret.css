@@ -26,7 +26,7 @@ input{
     border-radius: 5px;
 }
 
-div{
+.form-group{
     min-width: 300px;
     max-width: 500px;
     margin:  auto;
