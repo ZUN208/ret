@@ -10,7 +10,7 @@
 
   <h1>Contact Us</h1>
 <div class="form-group">
-  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg70000011j7N" method="POST" onsubmit="return isCaptched();">
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg70000011j7N" method="POST" >
 
 <input type=hidden name="oid" value="00Dg70000011j7N">
 <input type=hidden name="retURL" value="http://google.com">
@@ -38,12 +38,7 @@
 
     
   </form>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-<script>function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); </script>
-<input type=hidden name='captcha_settings' value='{"keyname":"LeadForm","fallback":"true","orgId":"00Dg70000011j7N","ts":""}'>
-<div class="g-recaptcha" data-sitekey="6LfzhMQsAAAAAJisFKoaZ9n5IEQzw91yMimoSrfF"></div><br>
-<script>function isCaptched() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") { alert("Please verify that you are not a robot."); return false; } return true; }</script>
-
+    
   </div>
   
 </body>
